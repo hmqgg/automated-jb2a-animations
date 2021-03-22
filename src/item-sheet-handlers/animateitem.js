@@ -3,7 +3,7 @@ import { AUTOANIM } from "./config.js";
 export class AnimateItem {
 
     constructor(flags, itemData) {
-        this.data = mergeObject(this.defaultData(), flags || {}, { inplace: false });
+        this.data = mergeObject(this.defaultData(), flags, { inplace: true });
 
         this.killAnim = this.data.killAnim;
         this.override = this.data.override;
@@ -14,22 +14,24 @@ export class AnimateItem {
         this.explodeColor = this.data.explodeColor;
         this.explodeRadius = this.data.explodeRadius;
         this.explodeVariant = this.data.explodeVariant;
-
-        this._itemName = itemData[0];
-        this._animTypeVar = itemData[1];
+        this.itemName = itemData[0];
+        this.animTypeVar = itemData[1];
+        //this.flagObject = Object.assign({}, this.data);
     }
 
     defaultData() {
         return {
-            killAnim: true,
-            override: false,
             animName: ``,
-            color: ``,
             animType: ``,
-            explosion: false,
+            color: ``,
             explodeColor: ``,
             explodeRadius: ``,
             explodeVariant: ``,
+            killAnim: false,
+            explosion: false,
+            override: false,
+            //itemName = ``,
+            //animTypeVar = ``,
         }
     }
     /*
@@ -56,55 +58,60 @@ export class AnimateItem {
     }
     */
     get meleeColor() {
-        console.log(this.animType);
-        console.log(this._itemName);
+        //console.log(this.animType);
+        console.log(this.itemName);
+        console.log(this.color);
         switch (true) {
-            case ((this._itemName.includes("laser", "sword")) && (this.animType === "t2")):
+            case (this.itemName.includes("laser", "sword")):
                 return AUTOANIM.animColorLaserSword;
                 break;
-            case (this._itemName.includes("dagger")):
-            case (this._itemName.includes("great", "axe")):
-            case (this._itemName.includes("great", "sword")):
-            case (this._itemName.includes("great", "club")):
-            case (this._itemName.includes("hand", "axe")):
-            case (this._itemName.includes("mace")):
-            case (this._itemName.includes("maul")):
-            case (this._itemName.includes("rapier")):
-            case (this._itemName.includes("scimitar")):
-            case (this._itemName.includes("spear")):
-            case (this._itemName.includes("sword")):
+            case (this.itemName.includes("dagger")):
+            case (this.itemName.includes("great", "axe")):
+            case (this.itemName.includes("great", "sword")):
+            case (this.itemName.includes("great", "club")):
+            case (this.itemName.includes("hand", "axe")):
+            case (this.itemName.includes("mace")):
+            case (this.itemName.includes("maul")):
+            case (this.itemName.includes("rapier")):
+            case (this.itemName.includes("scimitar")):
+            case (this.itemName.includes("spear")):
+            case (this.itemName.includes("sword")):
                 return AUTOANIM.animColorMelee;
                 break;
-            case (this._itemName.includes("cure", "wound")):
+            case (this.itemName.includes("cure", "wound")):
                 return AUTOANIM.animColorCureWounds;
                 break;
-            case (this._itemName.includes("disintegrate")):
+            case (this.itemName.includes("disintegrate")):
                 return AUTOANIM.animColorDisintegrate;
                 break;
-            case (this._itemName.includes("fire", "bolt")):
+            case (this.itemName.includes("fire", "bolt")):
                 return AUTOANIM.animColorFirebolt;
                 break;
-            case (this._itemName.includes("generic", "heal")):
-            case (this._itemName.includes("heal", "word")):
+            case (this.itemName.includes("generic", "heal")):
+            case (this.itemName.includes("heal", "word")):
                 return AUTOANIM.animColorHealingWord;
                 break;
-            case (this._itemName.includes("magic", "missile")):
+            case (this.itemName.includes("magic", "missile")):
                 return AUTOANIM.animColorMagicMissile;
                 break;
-            case (this._itemName.includes("ray", "frost")):
+            case (this.itemName.includes("ray of frost")):
                 return AUTOANIM.animColorRayFrost;
                 break;
-            case (this._itemName.includes("scorch", "ray")):
+            case (this.itemName.includes("scorching ray")):
                 return AUTOANIM.animColorScorchingRay;
                 break;
-            case (this._itemName.includes("witch", "bolt")):
+            case (this.itemName.includes("witch", "bolt")):
                 return AUTOANIM.animColorWitchbolt;
                 break;
-            case (this._itemName.includes("arrow")):
-            case (this._itemName.includes("bow")):
+            case (this.itemName.includes("thunder", "wave")):
+            case (this.itemName.includes("shatter")):
+                return AUTOANIM.animColorShatterThunder;
+                break;
+            case (this.itemName.includes("arrow")):
+            case (this.itemName.includes("bow")):
                 return AUTOANIM.animColorArrow;
                 break;
-            case (this._itemName.includes("laser")):
+            case (this.itemName.includes("laser")):
                 return AUTOANIM.laserblastColors;
                 break;
             default:
@@ -126,23 +133,26 @@ export class AnimateItem {
     }
 
     get animNameHolder() {
-        //console.log(this._animTypeVar);
+        //console.log(this.animTypeVar);
         switch (true) {
-            case (this._animTypeVar === "melee"):
+            case (this.animType === "t2"):
                 return AUTOANIM.animNameMeleeWeapon;
                 break;
-            case (this._animTypeVar === "gendmg"):
+            case (this.animType === "t3"):
                 return AUTOANIM.animNameGenericDmg;
                 break;
-            case (this._animTypeVar === "ranged"):
+            case (this.animType === "t4"):
                 return AUTOANIM.animNameRangeWeapon;
                 break;
-            case (this._animTypeVar === "attackspell"):
-                return AUTOANIM.animNameSpell;
+            case (this.animType === "t5"):
+                return AUTOANIM.animCreatureAttack;
                 break;
-            case (this._animTypeVar === "healpotion"):
-                return AUTOANIM.animHealPotion;
-                break;                
+            case (this.animType === "t6"):
+                return AUTOANIM.animNameAttackSpell;
+                break;
+            case (this.animType === "t7"):
+                return AUTOANIM.animNameHealSpell;
+                break;
         }
     }
 
@@ -150,16 +160,23 @@ export class AnimateItem {
         return AUTOANIM.animTypePick;
     }
 
+
     toggleEnabled(enabled) {
         this.enabled = enabled;
-        if (!this.enabled) {
-            this.clear();
+        if (this.enabled) {
+            //console.log(this.flagObject);
+            //console.log(this);
+            mergeObject(this, this.defaultData(), { inplace: true });
+            //console.log(this);
+            //console.log(this.data);
+            //console.log(this._currentData);
+            //console.log(this.defaultData());
         }
     }
-
-    clear() {
-        mergeObject(this, this.defaultData());
-    }
-
+    /*
+        clear() {
+            mergeObject(this, this.defaultData(), {overwrite});
+        }
+    */
 
 }

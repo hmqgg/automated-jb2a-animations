@@ -1,23 +1,27 @@
 
 export const AUTOANIM = {};
 
-AUTOANIM.animNameSpell = {
+AUTOANIM.animNameAttackSpell = {
+    "a1": ``,
+    "a2": "Disintegrate",
+    "a3": "Firebolt",
+    "a4": "Magic Missile",
+    "a5": "Ray of Frost",
+    "a6": "Scorching Ray",
+    "a7": "Witch bolt"
+};
+
+AUTOANIM.animNameHealSpell = {
     "a1": ``,
     "a2": "Cure Wounds",
-    "a3": "Disintegrate",
-    "a4": "Firebolt",
-    "a5": "Generic Heal",
-    "a6": "Magic Missile",
-    "a7": "Ray of Frost",
-    "a8": "Scorching Ray",
-    "a9": "Witchbolt"
-};
+    "a3": "Generic Healing",
+}
 
 AUTOANIM.animNameTemplateSpell = {
     "tp1": ``,
     "tp2": "Thunderwave",
     "tp3": "Shatter"
-}
+};
 
 AUTOANIM.animNameMeleeWeapon = {
     "a1": ``,
@@ -54,15 +58,22 @@ AUTOANIM.animNameGenericDmg = {
     "a7": "2 Handed Bludgeoning",
 }
 
+AUTOANIM.animCreatureAttack = {
+    "a1": ``,
+    "a2": "Bite",
+    "a3": "Claw",
+}
+
 AUTOANIM.animColorMelee = {
-    "d1": `Regular`,
-    "d2": "Blue",
-    "d3": "Green",
-    "d4": "Orange",
-    "d5": "Red",
-    "d6": "Purple",
-    "d7": "Pink",
-    "d8": "Yellow"
+    "d1": ``,
+    "d2": `Regular`,
+    "d3": "Blue",
+    "d4": "Green",
+    "d5": "Orange",
+    "d6": "Red",
+    "d7": "Purple",
+    "d8": "Pink",
+    "d9": "Yellow"
 };
 
 AUTOANIM.animColorLaserSword = {
@@ -72,85 +83,94 @@ AUTOANIM.animColorLaserSword = {
     "d4": "Orange",
     "d5": "Red",
     "d6": "Purple",
-    "d7": "Pink",
-    "d8": "Yellow",
-    "d9": "Darkred"
+    "d7": "Yellow",
+    "d8": "Darkred"
 };
 
 AUTOANIM.animColorCureWounds = {
-    "f1": "Blue",
-    "f2": "Green",
-    "f3": "Purple",
-    "f4": "Red"
+    "f1": ``,
+    "f2": "Blue",
+    "f3": "Green",
+    "f4": "Purple",
+    "f5": "Red"
 };
 
 AUTOANIM.animColorDisintegrate = {
-    "g1": "Green",
-    "g2": "Darkred",
-    "g3": "Orange Pink",
-    "g4": "Purple Blue"
+    "g1": ``,
+    "g2": "Green",
+    "g3": "Darkred",
+    "g4": "Orange Pink",
+    "g5": "Purple Blue"
 };
 
 AUTOANIM.animColorFirebolt = {
-    "h1": "Blue",
-    "h2": "Green",
-    "h3": "Orange",
-    "h4": "Purple",
-    "h5": "Red",
+    "h1": ``,
+    "h2": "Blue",
+    "h3": "Green",
+    "h4": "Orange",
+    "h5": "Purple",
+    "h6": "Red",
 };
 
 AUTOANIM.animColorHealingWord = {
-    "i1": "Blue",
-    "i2": "Green",
-    "i3": "Purple",
-    "i4": "Yellow"
+    "i1": ``,
+    "i2": "Blue",
+    "i3": "Green",
+    "i4": "Purple",
+    "i5": "Yellow"
 };
 
 AUTOANIM.animColorMagicMissile = {
-    "j1": "Blue",
-    "j2": "Green",
-    "j3": "Purple",
-    "j4": "Yellow",
-    "j5": "Random"
+    "j1": ``,
+    "j2": "Blue",
+    "j3": "Green",
+    "j4": "Purple",
+    "j5": "Yellow",
+    "j6": "Random"
 };
 
 AUTOANIM.animColorRayFrost = {
-    "k1": "Blue",
-    "k2": "Green",
-    "k3": "Purple Teal",
-    "k4": "Yellow Blue",
+    "k1": ``,
+    "k2": "Blue",
+    "k3": "Green",
+    "k4": "Purple Teal",
+    "k5": "Yellow Blue",
 };
 
 AUTOANIM.animColorScorchingRay = {
-    "m1": "Blue",
-    "m2": "Green",
-    "m3": "Orange",
-    "m4": "Purple",
-    "m5": "Red",
-    "m6": "Yellow"
+    "m1": ``,
+    "m2": "Blue",
+    "m3": "Green",
+    "m4": "Orange",
+    "m5": "Purple",
+    "m6": "Red",
+    "m7": "Yellow",
 };
 
 AUTOANIM.animColorShatterThunder = {
-    "n1": "Blue",
-    "n2": "Green",
-    "n3": "Orange",
-    "n4": "Purple",
-    "n5": "Red"
+    "n1": ``,
+    "n2": "Blue",
+    "n3": "Green",
+    "n4": "Orange",
+    "n5": "Purple",
+    "n6": "Red"
 };
 
 AUTOANIM.animColorWitchbolt = {
-    "p1": "Blue",
-    "p2": "Green",
-    "p3": "Red",
-    "p4": "Yellow",
-    "p5": "Darkgreen",
-    "p6": "Darkpurple",
-    "p7": "Darkred"
+    "p1": ``,
+    "p2": "Blue",
+    "p3": "Green",
+    "p4": "Red",
+    "p5": "Yellow",
+    "p6": "Darkgreen",
+    "p7": "Darkpurple",
+    "p8": "Darkred"
 };
 
 AUTOANIM.animColorArrow = {
-    "q1": "Regular",
-    "q2": "Green"
+    "q1": ``,
+    "q2": "Regular",
+    "q3": "Green"
 };
 
 AUTOANIM.explosionColors = {
@@ -196,16 +216,11 @@ AUTOANIM.animTypePick = {
     "t2": "Melee Weapon",
     "t3": "Generic Melee Dmg",
     "t4": "Ranged Weapon",
-    "t5": "Attack Spell",
-    "t6": "Healing Potion",
-    "t7": "Explosives (Template)",
-    "t8": "Explosives (Target)",
-}
-
-AUTOANIM.animHealPotion = {
-    "c1": ``,
-    "c2": `Cure Wounds`,
-    "c3": "Generic Heal",
+    "t5": "Creature Attack",
+    "t6": "Attack Spell",
+    "t7": "Healing Spell",
+    "t8": "Explosives (Template)",
+    "t9": "Explosives (Target)",
 }
 
 AUTOANIM.animNull = {

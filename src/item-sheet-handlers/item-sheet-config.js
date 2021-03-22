@@ -2,6 +2,7 @@ import { AUTOANIM } from "./config.js";
 import { AnimateItem } from "./animateitem.js";
 const animationTabs = [];
 import getNameColor from "./name-color-checks.js";
+//import mergeDamnObject from "./mergeDamnObject.js";
 
 export class AnimationTab {
 
@@ -105,16 +106,16 @@ export class AnimationTab {
 
 
         switch (true) {
-            case (this.animateItem.explosion && (this.animateItem.animName === "Arrow")):
+            case (this.animateItem.explosion && ((this.animateItem.animName === "Arrow") || this.item.name.includes("bow"))):
                 explosionOptions.show();
                 break;
-            case (this.animateItem.animType === "t7"):
-            case (this.animateItem.animType === "t8"):
+            case ((this.animateItem.animType === "t8") && (this.animateItem.override === true)):
+            case ((this.animateItem.animType === "t9") && (this.animateItem.override === true)):
                 explosionOptions.show();
                 animateName.hide();
                 animateColor.hide();
                 break;
-            case (this.animateItem.animType === "t3"):
+            case ((this.animateItem.animType === "t3") && (this.animateItem.override === true)):
                 animateColor.hide();
             default:
                 explosionOptions.hide();
@@ -129,6 +130,7 @@ export class AnimationTab {
         */
         switch (true) {
             case (this.animateItem.animName === "Arrow"):
+            case (this.item.name.includes("bow")):
                 animateExplosion.show();
                 break;
             default:
@@ -190,7 +192,9 @@ export class AnimationTab {
         });
         
         this.html.find('input[name="flags.autoanimations.killAnim"]').click(evt => {
-            this.animateItem.toggleEnabled(evt.target.unchecked);
+            this.animateItem.toggleEnabled(evt.target.checked);
+            //this.render();
+            //mergeDamnObject(this.item);
         });
         this.html.find('select[name="flags.autoanimations.animName"]').change(evt => {
             //this.animateItem.animName = evt.target.value;

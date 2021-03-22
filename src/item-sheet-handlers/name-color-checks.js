@@ -1,21 +1,34 @@
 function getNameColor(data) {
 
-    let itemNameSys = data.item?.name?.toLowerCase() ?? ``;
-    let itemNameflags = data.item?.flags?.autoanimations?.animName?.toLowerCase() ?? ``;
+    let itemNameSys = data.entity?.name?.toLowerCase() ?? ``;
+    let itemNameFlags = data.entity?.flags?.autoanimations?.animName?.toLowerCase() ?? ``;
     let itemAnimType = data.item?.flags?.autoanimations?.animType?.toLowerCase() ?? ``;
+    let isOverride = data.item?.flags?.autoanimations?.override;
 
     //let itemColorSys = data.item.data.source;
     //let itemColorflags = data.item.flags.autoanimations.color.toLowerCase();
-
+    /*
     let itemNameFinal;
     switch (true) {
-        case (itemNameflags === ``):
+        //case (itemNameFlags === ``):
+        case (!isOverride):
             itemNameFinal = itemNameSys;
             break;
         default:
-            itemNameFinal = itemNameflags;
+            itemNameFinal = itemNameFlags;
             break;
     }
+    */
+    let animNameFinal;
+    switch (true) {
+        case((!isOverride) || ((isOverride) && (itemNameFlags === ''))):
+            animNameFinal = itemNameSys;
+            break;
+        default:
+            animNameFinal = itemNameFlags;
+            break;
+    }
+
 
     let animNameVar;
     switch (true) {
@@ -45,7 +58,7 @@ function getNameColor(data) {
             break;
     }
 
-    return [itemNameFinal, animNameVar];
+    return [animNameFinal, animNameVar];
 }
 
 export default getNameColor;

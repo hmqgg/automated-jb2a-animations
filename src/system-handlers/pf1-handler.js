@@ -23,6 +23,11 @@ export default class Pf1Handler {
         return "";
     }
 
+    get reachCheck() {
+        // to do
+        return 0;
+    }
+
     get actorToken() {
         return this._actorToken;
     }
