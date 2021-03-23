@@ -2,12 +2,11 @@ import { AUTOANIM } from "./config.js";
 import { AnimateItem } from "./animateitem.js";
 const animationTabs = [];
 import getNameColor from "./name-color-checks.js";
-//import mergeDamnObject from "./mergeDamnObject.js";
 
 export class AnimationTab {
 
     static bind(app, html, data) {
-        let acceptedTypes = ['weapon', 'spell', 'consumable', 'feat'];
+        let acceptedTypes = ['weapon', 'spell', 'consumable', 'feat', 'attack'];
         if (acceptedTypes.includes(data.entity.type)) {
             let tab = animationTabs[app.id];
             if (!tab) {
@@ -27,7 +26,6 @@ export class AnimationTab {
     }
 
 
-    //itemName = app.item.name;S
 
     init(html, data) {
 
@@ -43,10 +41,30 @@ export class AnimationTab {
         tabs.append($(
             '<a class="item" data-tab="autoanimations">Animate</a>'
         ));
-
+        /* DND 5e
         $(html.find(`.sheet-body`)).append($(
             '<div class="tab animate-items" data-group="primary" data-tab="autoanimations"></div>'
         ));
+        
+        // PF1
+        $(html.find(`.primary-body`)).append($(
+            '<div class="tab animate-items" data-group="primary" data-tab="autoanimations"></div>'
+        ));
+        */
+        switch (game.system.id) {
+            case ("dnd5e"):
+                $(html.find(`.sheet-body`)).append($(
+                    '<div class="tab animate-items" data-group="primary" data-tab="autoanimations"></div>'
+                ));
+                break;
+            case ("pf1"):
+                $(html.find(`.primary-body`)).append($(
+                    '<div class="tab animate-items" data-group="primary" data-tab="autoanimations"></div>'
+                ));
+                break;
+
+        }
+
 
         this.html = html;
         this.editable = data.editable;
@@ -78,8 +96,6 @@ export class AnimationTab {
             this.html.find('.tab.animate-items').append(template);
         }
 
-        //let animateType = this.html.find(`.animation-type`);
-        //if(this.)
 
         let animateType = this.html.find('.animation-type');
         let animateName = this.html.find('.animation-name');
@@ -88,7 +104,6 @@ export class AnimationTab {
         let animateExplosion = this.html.find('.animate-explosion');
         let explosionOptions = this.html.find('.animate-explosion-options');
 
-        //let animateColor = this.html.find('.animate-color');
 
         if (this.animateItem.killAnim) {
             animateEnabled.hide();
@@ -121,13 +136,7 @@ export class AnimationTab {
                 explosionOptions.hide();
                 break;
         }
-        /*
-        if ((this.animateItem.explosion) && (this.animateItem.animName === "Arrow")) {
-            explosionOptions.show();
-        } else {
-            explosionOptions.hide();
-        }
-        */
+
         switch (true) {
             case (this.animateItem.animName === "Arrow"):
             case (this.item.name.includes("bow")):
@@ -136,35 +145,6 @@ export class AnimationTab {
             default:
                 animateExplosion.hide();
         }
-        /*
-        if(this.animateItem.animName === "Arrow") {
-            animateExplosion.show();
-        } else {
-            animateExplosion.hide();
-        }
-        
-        if((this.animateItem.animType === "Explosives (Template)") || (this.animateItem.animType === "Explosives (Target)")) {
-
-        }
-        */
-
-
-        /*
-        if((this.animateItem.animType === 't1') && (this.animateItem.override)) {
-            animateName.show();
-        } else {
-            animateName.hide();
-        }
-        */
-        /*
-        // duplicate this, then use a switch to set color HTML
-        let animateColor = this.html.find('.animation-color');
-        if(this.animateItem.enabled) {
-            animateColor.show();
-        } else {
-            animateColor.hide();
-        }
-        */
 
         if (this.editable) {
             this.handleEvents();
@@ -175,22 +155,38 @@ export class AnimationTab {
 
         this.app.setPosition();
 
+
+        if (this.activate && !this.isActive()) {
+            switch (game.system.id) {
+                case ("dnd5e"):
+                    this.app._tabs[0].activate("autoanimations");
+                    this.activate = false;
+                    break;
+                case ("pf1"):
+                    this.app._tabsAlt.subTabs[0].parent.activate("autoanimations");
+                    this.activate = false;
+                    break
+            }
+        }
+        /*
         if (this.activate && !this.isActive()) {
             this.app._tabs[0].activate("autoanimations");
             this.activate = false;
         }
+        */
+
     }
 
     handleEvents() {
-        
+
         this.html.find('.animation-tab-contents input[type="checkbox"]').change(evt => {
             this.activate = true;
         });
-        
+
         this.html.find('.animation-tab-contents select').change(evt => {
             this.activate = true;
         });
-        
+
         this.html.find('input[name="flags.autoanimations.killAnim"]').click(evt => {
             this.animateItem.toggleEnabled(evt.target.checked);
             //this.render();

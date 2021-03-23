@@ -3,18 +3,17 @@ export default class MidiHandler {
         const item = workflow.item;
         this._actorToken = canvas.tokens.get(workflow.tokenId) || canvas.tokens.placeables.find(token => token.actor.items.get(item._id) != null);
         const actor = this._actorToken?.actor;
-
         if (!item || !actor) {
             return;
         }
-
         this._item = item;
         this._actor = actor;
 
         this._actorToken = canvas.tokens.get(workflow.tokenId) || canvas.tokens.placeables.find(token => token.actor.items.get(item._id) != null);
 
+        // getting flag data from Animation Tab
         this._flags = item.data?.flags?.autoanimations ?? "";;
-
+        //
         this._animColor = this._flags?.color?.toLowerCase() ?? "";
         this._animName = this._flags.animName?.toLowerCase() ?? "";
         this._animExColor = this._flags.explodeColor?.toLowerCase() ?? "";
@@ -25,10 +24,7 @@ export default class MidiHandler {
         this._animOverride = this._flags.override;
         this._animExplode = this._flags.explosion;
 
-
-        //this._allTargets = Array.from(workflow.targets);
         this._checkSave = Array.from(workflow.saves);
-        //saves = Array.from(checkSave.filter(actor => actor.id).map(actor => actor.id));
 
         if (game.settings.get("automated-jb2a-animations", "playonhit")) {
             this._allTargets = Array.from(workflow.hitTargets);
@@ -36,8 +32,7 @@ export default class MidiHandler {
             this._allTargets = Array.from(workflow.targets);
         }
 
-        this._itemName = item.name?.toLowerCase();
-        console.log(this._itemName);
+        this._itemName = item.name?.toLowerCase() ?? '';;
         this._itemSource = item.data?.data?.source?.toLowerCase() ?? '';
         this._itemType = item.data.type.toLowerCase();
 
@@ -50,7 +45,7 @@ export default class MidiHandler {
                 this._animNameFinal = this._animName;
                 break;
         }
-        console.log(this._animNameFinal);
+        //console.log(this._animNameFinal);
         this._animColorEffect;
         switch (true) {
             case (this._animColor === ``):
