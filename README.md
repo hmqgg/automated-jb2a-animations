@@ -67,6 +67,8 @@ Item Names that are automatically Recognized will have the **COLOR** menu pre-po
   
 To use a different animation, or to assign an animation to an Item that doesn't have one autmatically play, **check** the **Override Animation** box. 
 
+![Alt text](pictures/AnimateOverride.PNG)  
+
 This enables an option to **Choose an Animation Type**. This menu is divided into several categories:  
 - Melee Weapon  
 - Generic Melee Damage  
@@ -77,6 +79,20 @@ This enables an option to **Choose an Animation Type**. This menu is divided int
 - Explosives (Template)  
 - Explosives (Target)  
 
+# Available Animations  
+## Melee Weapon  
+- Greataxe  
+- Greatclub  
+- Greatsword  
+- Lasersword  
+- Mace  
+- Maul  
+- Sword  
+- Rapier  
+Special Cases: Will play a **melee** animation when in Melee range, and switch to a **ranged** animation beyond that. Color variants are only available for the **melee attacks** (for now)  
+- Dagger  
+- Handaxe  
+- Spear  
 
 
 The module reads the data passed through Chat Cards to get the **Name** of the item, as well as reading the item's **Source** Field. It pairs animations from the JB2A module with items having the name they were designed for.
