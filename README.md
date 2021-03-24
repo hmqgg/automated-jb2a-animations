@@ -106,7 +106,7 @@ By default, the animations activate and play when the Midi-QOL "workflow" is com
 **3. Only play animations on Damage Rolls**
 - A simpler option that will ONLY play animations when the Damage or Healing rolls are done.
 
-**Core 5e, MRE**
+**Core 5e, MRE**  
 By Default, animations will play on Attack Rolls. Setting is available to play animations on **Damage Rolls** only.
 
 # Special Notes
