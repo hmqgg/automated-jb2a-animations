@@ -56,6 +56,9 @@ This module functions similarly to calling On-Use Macros through Midi-QOL or Ite
 Automated Animations reads the data passed through Chat Cards, or Module Hooks, to get the **Name** of the item. Items (Spells, Weapons, etc) that have a **name** matching a **JB2A animation** will play an animation on use. This generally occurs on the Attack Roll, with options for playing Animations on Damage Rolls. All **default** colors for available animations are based on the **Free** JB2A Module. To use color variants, you need to have the **Patreon** version of the JB2A Module.
 
 # Animate Tab  
+
+![Alt text](pictures/AnimateTab.png)  
+
 The **Animate** Tab on Item sheets allows users to customize colors (from the Patreon module), assign a differnt animation to the item, or stop the animation from playing altogether.  
 
 
