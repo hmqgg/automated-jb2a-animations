@@ -59,7 +59,7 @@ Automated Animations reads the data passed through Chat Cards, or Module Hooks, 
 
 ![Alt text](pictures/AnimateTab.PNG)  
 
-The **Animate** Tab on Item sheets allows users to customize colors (from the Patreon module), assign a differnt animation to the item, or stop the animation from playing altogether.  
+The **Animate** Tab on Item sheets allows users to customize colors (from the Patreon module), assign a different animation to the item, or stop the animation from playing altogether.  
 
 
 
