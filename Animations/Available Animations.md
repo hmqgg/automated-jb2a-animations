@@ -59,14 +59,14 @@ If not stated otherwise each weapon has the following color options: `Blue`, `Gr
 ---
 ### Generic Damage types (Patreon Only)
 **Must be set via the Override box in the Animate Tab**  
-| Keyword | Animation Type |
-| :-------| :--------------|
-| `1hs` | 1 handed slashing | |
-| `2hs` | 2 handed slashing | |
-| `1hp` | 1 handed piercing | |
-| `2hp` | 2 handed piercing | |
-| `1hb` | 1 handed bludgeoning | |
-| `2hb` | 2 handed bludgeoning | |  
+| Animation Type |
+| :--------------|
+| 1 handed slashing | |
+| 2 handed slashing | |
+| 1 handed piercing | |
+| 2 handed piercing | |
+| 1 handed bludgeoning | |
+| 2 handed bludgeoning | |  
 
 ---
 ### Creature Attacks  
