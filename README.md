@@ -1,3 +1,5 @@
+## NOTE: Use of the Source Field (in DnD 5e) has been deprecated. Moving forward only the Animate Tab will be supported and updated  
+
 # Automated Animations
 **No animations are provided in this module. It is designed to work in conjunction with the JB2A Animated Assets module. This module has been reviewed, approved and recommended by JB2A**  
 
@@ -41,11 +43,10 @@ PF1 Support:
 
 ## Roadmap (subject to change):  
 The first 3 are a higher priority, but the rest will flucuate depending on circumstances  
-1. Adding Localization to support other languages  
-2/3. Adding an Item Sheet Tab for better customization of animations (as opposed to manual input in Name/Source Fields). Handled through applying flags  
-2/3. Extending support to PF2e, Star Wars and GURP  
+1. Adding Localization to support other languages   
+2. Extending support to PF2e, Star Wars, GURP and SWADE  
 4. Adding customizable TMFX options on a per item basis (versus a global on/off setting currently)
-5. Ability to easily apply Sound FX in item customization settings via file picker
+5. Ability to easily apply Sound FX in item customization settings
 6. Adding more automatic recognition options (Spiritual Weapon Auto-Spawn & Delete, Reaction effects, Stuns, etc)  
 
 # Overview
@@ -80,22 +81,12 @@ This enables an option to **Choose an Animation Type**. This menu is divided int
 - Explosives (Target)  
 
 # Available Animations  
-## Melee Weapon  
-- Greataxe  
-- Greatclub  
-- Greatsword  
-- Lasersword  
-- Mace  
-- Maul  
-- Sword  
-- Rapier  
-Special Cases: Will play a **melee** animation when in Melee range, and switch to a **ranged** animation beyond that. Color variants are only available for the **melee attacks** (for now)  
-- Dagger  
-- Handaxe  
-- Spear  
-
-
-The module reads the data passed through Chat Cards to get the **Name** of the item, as well as reading the item's **Source** Field. It pairs animations from the JB2A module with items having the name they were designed for.
+check the Animations.md file for available animations and colors  
+## Special Notes  
+Explosives (Template)  
+For use with Circular Template spells/items. This will play an explosion animation at the center of a circular template when placed on the canvas.  
+Explosives (Target)  
+Designed for use with **thrown items** like Alchemist's Fire to play an explosion directly on the targetted token.  
 
 ### Source Field is only available in the DnD5e System currently. I am working to add better customization fields based on Core Foundry to be used in other systems. For PF1, the best (current) way to change colors of effects is to add that color to the Name field
 
