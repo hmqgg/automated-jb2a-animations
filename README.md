@@ -53,6 +53,14 @@ The first 3 are a higher priority, but the rest will flucuate depending on circu
 
 This module functions similarly to calling On-Use Macros through Midi-QOL or Item Macro. However, this will run all of the animations behind the scenes without fussing with macros. This is ONLY set up for DnD5e and PF1 currently, though may work on other similar systems.  
 
+Automated Animations reads the data passed through Chat Cards, or Module Hooks, to get the **Name** of the item. Items (Spells, Weapons, etc) that have a **name** matching a **JB2A animation** will play an animation on use. This generally occurs on the Attack Roll, with options for playing Animations on Damage Rolls. All **default** colors for available animations are based on the **Free** JB2A Module. To use color variants, you need to have the **Patreon** version of the JB2A Module.
+
+# Animate Tab  
+The **Animate** Tab on Item sheets allows users to customize colors (from the Patreon module), assign a differnt animation to the item, or stop the animation from playing altogether.  
+
+
+
+
 The module reads the data passed through Chat Cards to get the **Name** of the item, as well as reading the item's **Source** Field. It pairs animations from the JB2A module with items having the name they were designed for.
 
 ### Source Field is only available in the DnD5e System currently. I am working to add better customization fields based on Core Foundry to be used in other systems. For PF1, the best (current) way to change colors of effects is to add that color to the Name field
