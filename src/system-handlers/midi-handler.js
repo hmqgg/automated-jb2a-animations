@@ -23,6 +23,7 @@ export default class MidiHandler {
         this._animKill = this._flags.killAnim;
         this._animOverride = this._flags.override;
         this._animExplode = this._flags.explosion;
+        this._animDgThrVar = this._flags.dtvar?.toLowerCase() ?? "";
 
         this._checkSave = Array.from(workflow.saves);
 
@@ -127,6 +128,9 @@ export default class MidiHandler {
         return this._animExplode;
     }
 
+    get animDagThrVar() {
+        return this._animDgThrVar;
+    }
 
     getDistanceTo(target) {
         return MidiQOL.getDistance(target, this._actorToken);

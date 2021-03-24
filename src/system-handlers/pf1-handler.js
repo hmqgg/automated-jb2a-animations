@@ -25,6 +25,7 @@ export default class Pf1Handler {
         this._animKill = this._flags.killAnim;
         this._animOverride = this._flags.override;
         this._animExplode = this._flags.explosion;
+        this._animDgThrVar = this._flags.dtvar?.toLowerCase() ?? "";
 
         this._animNameFinal;
         switch (true) {
@@ -108,6 +109,9 @@ export default class Pf1Handler {
         return this._animExplode;
     }
 
+    get animDagThrVar() {
+        return this._animDgThrVar;
+    }
 
     getDistanceTo(target) {
         const scene = game.scenes.active;

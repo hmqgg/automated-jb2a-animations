@@ -304,6 +304,7 @@ async function revItUp(handler) {
         case (handler.itemNameIncludes("fire", "bolt")):
         case (handler.itemNameIncludes("ray", "frost")):
         case (handler.itemNameIncludes("witch", "bolt")):
+        case (handler.itemNameIncludes("eldritch blast")):
         case (handler.itemNameIncludes("scorching", "ray")):
         case (handler.itemNameIncludes("disintegrate")):
             spellAttacks(handler);
@@ -889,13 +890,13 @@ async function meleeRangeSwitch(handler) {
     }
 
     switch (true) {
-        case (handler.itemNameIncludes("kunai")):
+        case (handler.animDagThrVar.includes("kunai")):
             item11 = "Kunai01";
             Delay01 = 600;
             Delay02 = 600;
             Delay03 = 600;
             break;
-        case (handler.itemNameIncludes("02")):
+        case (handler.animDagThrVar.includes("02")):
             item11 = "Dagger02";
             Delay01 = 600;
             Delay02 = 600;
@@ -1090,6 +1091,12 @@ async function spellAttacks(handler) {
             tint = "Regular";
             color = "Green01";
             tmColor = 0x00AFC1;
+            break;
+        case (handler.itemNameIncludes("eldritch blast")):
+            path = "Cantrip/Eldritch_Blast";
+            path2 = "EldritchBlast_01";
+            tint = "Regular";
+            color = "Purple";
             break;
     }
 
@@ -1332,6 +1339,7 @@ async function spellAttacks(handler) {
             switch (true) {
                 case (handler.itemNameIncludes("fire", "bolt")):
                 case (handler.itemNameIncludes("scorching", "ray")):
+                case (handler.itemNameIncludes("eldritch blast")):
                     switch (true) {
                         case (anDist <= 1600):
                             anFileSize = 1200;

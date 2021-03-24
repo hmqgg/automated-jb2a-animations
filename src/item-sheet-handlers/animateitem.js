@@ -1,3 +1,4 @@
+
 import { AUTOANIM } from "./config.js";
 
 export class AnimateItem {
@@ -16,6 +17,7 @@ export class AnimateItem {
         this.explodeVariant = this.data.explodeVariant;
         this.itemName = itemData[0];
         this.animTypeVar = itemData[1];
+        this.dtvar = this.data.dtvar;
         //this.flagObject = Object.assign({}, this.data);
     }
 
@@ -27,6 +29,7 @@ export class AnimateItem {
             explodeColor: ``,
             explodeRadius: ``,
             explodeVariant: ``,
+            dtvar: ``,
             killAnim: false,
             explosion: false,
             override: false,
@@ -62,14 +65,14 @@ export class AnimateItem {
         console.log(this.itemName);
         console.log(this.color);
         switch (true) {
-            case (this.itemName.includes("laser", "sword")):
+            case (this.itemName.includes("laser" && "sword")):
                 return AUTOANIM.animColorLaserSword;
                 break;
             case (this.itemName.includes("dagger")):
-            case (this.itemName.includes("great", "axe")):
-            case (this.itemName.includes("great", "sword")):
-            case (this.itemName.includes("great", "club")):
-            case (this.itemName.includes("hand", "axe")):
+            case (this.itemName.includes("great" && "axe")):
+            case (this.itemName.includes("great" && "sword")):
+            case (this.itemName.includes("great" && "club")):
+            case (this.itemName.includes("hand" && "axe")):
             case (this.itemName.includes("mace")):
             case (this.itemName.includes("maul")):
             case (this.itemName.includes("rapier")):
@@ -78,20 +81,23 @@ export class AnimateItem {
             case (this.itemName.includes("sword")):
                 return AUTOANIM.animColorMelee;
                 break;
-            case (this.itemName.includes("cure", "wound")):
+            case (this.itemName.includes("cure" && "wound")):
                 return AUTOANIM.animColorCureWounds;
                 break;
             case (this.itemName.includes("disintegrate")):
                 return AUTOANIM.animColorDisintegrate;
                 break;
-            case (this.itemName.includes("fire", "bolt")):
+            case (this.itemName.includes("eldritch blast")):
+                return AUTOANIM.animColorEBlast;
+                break;
+            case (this.itemName.includes("fire" && "bolt")):
                 return AUTOANIM.animColorFirebolt;
                 break;
-            case (this.itemName.includes("generic", "heal")):
-            case (this.itemName.includes("heal", "word")):
+            case (this.itemName.includes("generic" && "heal")):
+            case (this.itemName.includes("heal" && "word")):
                 return AUTOANIM.animColorHealingWord;
                 break;
-            case (this.itemName.includes("magic", "missile")):
+            case (this.itemName.includes("magic" && "missile")):
                 return AUTOANIM.animColorMagicMissile;
                 break;
             case (this.itemName.includes("ray of frost")):
@@ -100,10 +106,10 @@ export class AnimateItem {
             case (this.itemName.includes("scorching ray")):
                 return AUTOANIM.animColorScorchingRay;
                 break;
-            case (this.itemName.includes("witch", "bolt")):
+            case (this.itemName.includes("witch" && "bolt")):
                 return AUTOANIM.animColorWitchbolt;
                 break;
-            case (this.itemName.includes("thunder", "wave")):
+            case (this.itemName.includes("thunder" && "wave")):
             case (this.itemName.includes("shatter")):
                 return AUTOANIM.animColorShatterThunder;
                 break;
@@ -114,10 +120,20 @@ export class AnimateItem {
             case (this.itemName.includes("laser")):
                 return AUTOANIM.laserblastColors;
                 break;
+            case (this.itemName.includes("bite")):
+                return AUTOANIM.animBiteColor;
+                break;
+            case (this.itemName.includes("claw")):
+                return AUTOANIM.animClawColor;
+                break;
             default:
                 return AUTOANIM.animNoColor;
                 break;
         }
+    }
+
+    get daggerVar() {
+        return AUTOANIM.daggerVariant;
     }
 
     get exColors() {

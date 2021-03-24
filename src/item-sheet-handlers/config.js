@@ -4,11 +4,12 @@ export const AUTOANIM = {};
 AUTOANIM.animNameAttackSpell = {
     "a1": ``,
     "a2": "Disintegrate",
-    "a3": "Firebolt",
-    "a4": "Magic Missile",
-    "a5": "Ray of Frost",
-    "a6": "Scorching Ray",
-    "a7": "Witch bolt"
+    "a3": "Eldritch Blast",
+    "a4": "Fire Bolt",
+    "a5": "Magic Missile",
+    "a6": "Ray of Frost",
+    "a7": "Scorching Ray",
+    "a8": "Witch Bolt"
 };
 
 AUTOANIM.animNameHealSpell = {
@@ -64,6 +65,27 @@ AUTOANIM.animCreatureAttack = {
     "a3": "Claw",
 }
 
+AUTOANIM.animClawColor = {
+    "ac1": ``,
+    "ac2": "Blue",
+    "ac3": "Green",
+    "ac4": "Orange",
+    "ac5": "Purple",
+    "ac6": "Red",
+    "ac7": "Darkred",
+    "ac8": "Yellow",
+}
+
+AUTOANIM.animBiteColor = {
+    "ac1": ``,
+    "ac2": "Blue",
+    "ac3": "Green",
+    "ac4": "Orange",
+    "ac5": "Purple",
+    "ac6": "Red",
+    "ac7": "Yellow",
+}
+
 AUTOANIM.animColorMelee = {
     "d1": ``,
     "d2": `Regular`,
@@ -75,6 +97,13 @@ AUTOANIM.animColorMelee = {
     "d8": "Pink",
     "d9": "Yellow"
 };
+
+AUTOANIM.daggerVariant = {
+    "dt1": ``,
+    "dt2": "Dagger01",
+    "dt3": "Dagger02",
+    "dt4": "Kunai",
+}
 
 AUTOANIM.animColorLaserSword = {
     "d1": ``,
@@ -94,6 +123,14 @@ AUTOANIM.animColorCureWounds = {
     "f4": "Purple",
     "f5": "Red"
 };
+
+AUTOANIM.animColorEBlast = {
+    "f1": ``,
+    "f2": "Purple",
+    "f3": "Dark Purple",
+    "f4": "Green",
+    "f5": "Yellow",
+}
 
 AUTOANIM.animColorDisintegrate = {
     "g1": ``,

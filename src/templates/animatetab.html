@@ -50,6 +50,25 @@
                 </div>
             </div>
         </div>
+        <div class="animation-ranged-color">
+            <div class="form-group">
+                <label>Color ONLY applies to the Melee Attack, NOT the Ranged Attack</label>
+            </div>
+        </div>
+        <div class="dagger-variant">
+            <div class="form-group">
+                <label>Choose a Thrown Variant</label>
+                <div class="form-fields">
+                    <select name="flags.autoanimations.dtvar" class="dagger-variants">
+                        {{#select dtvar}}
+                        {{#each daggerVar as |key name|}}
+                        <option value="{{key}}">{{key}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+        </div>
         <div class="animate-explosion">
             <div class="form-group">
                 <label>Enable Explosion?</label>

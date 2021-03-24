@@ -21,6 +21,7 @@ export default class Dnd5Handler {
         this._animKill = this._flags.killAnim;
         this._animOverride = this._flags.override;
         this._animExplode = this._flags.explosion;
+        this._animDgThrVar = this._flags.dtvar?.toLowerCase() ?? "";
 
         //console.log(this._animName);
         this._animNameFinal;
@@ -112,6 +113,10 @@ export default class Dnd5Handler {
 
     get animExplode() {
         return this._animExplode;
+    }
+
+    get animDagThrVar() {
+        return this._animDgThrVar;
     }
 
 

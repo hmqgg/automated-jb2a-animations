@@ -6,7 +6,15 @@ import getNameColor from "./name-color-checks.js";
 export class AnimationTab {
 
     static bind(app, html, data) {
-        let acceptedTypes = ['weapon', 'spell', 'consumable', 'feat', 'attack'];
+        let acceptedTypes;
+        switch (game.system.id) {
+            case ("dnd5e"):
+                acceptedTypes = ['weapon', 'spell', 'consumable', 'feat'];
+                break;
+            case ("pf1"):
+                acceptedTypes = ['attack', 'spell', 'consumable', 'feat', 'equipment'];
+                break;
+        }
         if (acceptedTypes.includes(data.entity.type)) {
             let tab = animationTabs[app.id];
             if (!tab) {
@@ -38,7 +46,7 @@ export class AnimationTab {
             return;
         }
 
-        tabs.append($(
+        tabs.first().append($(
             '<a class="item" data-tab="autoanimations">Animate</a>'
         ));
         /* DND 5e
@@ -103,7 +111,8 @@ export class AnimationTab {
         let animateEnabled = this.html.find('.animation-not-disabled');
         let animateExplosion = this.html.find('.animate-explosion');
         let explosionOptions = this.html.find('.animate-explosion-options');
-
+        let dagThrowVariant = this.html.find('.dagger-variant');
+        let noRangeColor = this.html.find('.animation-ranged-color');
 
         if (this.animateItem.killAnim) {
             animateEnabled.hide();
@@ -121,29 +130,61 @@ export class AnimationTab {
 
 
         switch (true) {
-            case (this.animateItem.explosion && ((this.animateItem.animName === "Arrow") || this.item.name.includes("bow"))):
+            case (this.animateItem.explosion && ((this.animateItem.animName.toLowerCase().includes("arrow")) || this.item.name.toLowerCase().includes("bow")) && this.animateItem.animType === "t4"):
                 explosionOptions.show();
                 break;
-            case ((this.animateItem.animType === "t8") && (this.animateItem.override === true)):
-            case ((this.animateItem.animType === "t9") && (this.animateItem.override === true)):
+            case ((this.animateItem.animType === "t8") && (this.animateItem.override)):
+            case ((this.animateItem.animType === "t9") && (this.animateItem.override)):
                 explosionOptions.show();
                 animateName.hide();
                 animateColor.hide();
                 break;
-            case ((this.animateItem.animType === "t3") && (this.animateItem.override === true)):
+            case ((this.animateItem.animType === "t3") && (this.animateItem.override)):
                 animateColor.hide();
+                explosionOptions.hide();
+                break;
             default:
                 explosionOptions.hide();
                 break;
         }
 
         switch (true) {
-            case (this.animateItem.animName === "Arrow"):
-            case (this.item.name.includes("bow")):
+            case (this.animateItem.animName.toLowerCase().includes("dagger") || this.item.name.includes("dagger")):
+            case (this.animateItem.animName.toLowerCase().includes("spear") || this.item.name.includes("spear")):
+            case (this.animateItem.animName.toLowerCase().includes("handaxe") || this.item.name.includes("handaxe")):
+                noRangeColor.show();
+                break;
+            default:
+                noRangeColor.hide();
+                break;
+        }
+
+        switch (true) {
+            case (this.animateItem.animName.toLowerCase().includes("boulder") || this.item.name.includes("boulder")):
+            case (this.animateItem.animName.toLowerCase().includes("javelin") || this.item.name.includes("javelin")):
+            case (this.animateItem.animName.toLowerCase().includes("boulder") || this.item.name.includes("boulder")):
+            case (this.animateItem.animName.toLowerCase().includes("siege") || this.item.name.includes("siege")):
+            case (this.animateItem.animName.toLowerCase().includes("throwing" && "hammer") || this.item.name.includes("throwing" && "hammer")):
+                animateColor.hide();
+                break;
+        }
+
+        switch (true) {
+            case ((this.animateItem.animName.toLowerCase().includes("arrow")) && this.animateItem.animType === "t4"):
+            case (this.item.name.includes("bow") && this.animateItem.animType === "t4"):
                 animateExplosion.show();
                 break;
             default:
                 animateExplosion.hide();
+        }
+
+        switch (true) {
+            case ((this.animateItem.animName === "Dagger") && (this.animateItem.animType === "t2") && (this.animateItem.override)):
+                dagThrowVariant.show();
+                break;
+            default:
+                dagThrowVariant.hide();
+                break;
         }
 
         if (this.editable) {
@@ -154,7 +195,6 @@ export class AnimationTab {
         }
 
         this.app.setPosition();
-
 
         if (this.activate && !this.isActive()) {
             switch (game.system.id) {
