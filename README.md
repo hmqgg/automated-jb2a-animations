@@ -61,6 +61,21 @@ Automated Animations reads the data passed through Chat Cards, or Module Hooks, 
 
 The **Animate** Tab on Item sheets allows users to customize colors (from the Patreon module), assign a different animation to the item, or stop the animation from playing altogether.  
 
+Item Names that are automatically Recognized will have the **COLOR** menu pre-populated with available color variants. This is where you will change the colors of the animation.  
+  
+![Alt text](pictures/AnimateColors.PNG)  
+  
+To use a different animation, or to assign an animation to an Item that doesn't have one autmatically play, **check** the **Override Animation** box. 
+
+This enables an option to **Choose an Animation Type**. This menu is divided into several categories:  
+- Melee Weapon  
+- Generic Melee Damage  
+- Ranged Weapon  
+- Creature Attack  
+- Attack Spell  
+- Healing Spell  
+- Explosives (Template)  
+- Explosives (Target)  
 
 
 
